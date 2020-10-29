@@ -3,8 +3,8 @@ name: Go
 on:
   push:
     branches:
-      - 'master'
-      - 'release*'
+      - 'custom-master'
+      - 'custom-release*'
     tags:
       - 'v*'
   pull_request:
@@ -17,6 +17,7 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     env:
+      REPO : evlon
       GO111MODULE: on
     steps:
 
