@@ -17,12 +17,13 @@ limitations under the License.
 package v1alpha2
 
 import (
+	"net/http"
+	"strings"
+
 	"github.com/emicklei/go-restful"
 	log "k8s.io/klog"
 	"kubesphere.io/kubesphere/pkg/api"
 	"kubesphere.io/kubesphere/pkg/models/devops"
-	"net/http"
-	"strings"
 )
 
 const jenkinsHeaderPre = "X-"
@@ -202,6 +203,7 @@ func (h *ProjectPipelineHandler) GetPipelineRunNodes(req *restful.Request, resp 
 	resp.WriteAsJson(res)
 }
 
+// 提交jenkins 审批？
 func (h *ProjectPipelineHandler) SubmitInputStep(req *restful.Request, resp *restful.Response) {
 	projectName := req.PathParameter("devops")
 	pipelineName := req.PathParameter("pipeline")
